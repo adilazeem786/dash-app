@@ -465,8 +465,8 @@ def update_output(bulk_content, str_content, target_acos, selected_campaigns, se
     server = app.server  # Required for deployment on Render
 
     # Run the app
-   import os
+    import os
 
-   if __name__ == "__main__":
-       port = int(os.environ.get("PORT", 8080))  # Default to port 8080 if PORT is not set
-       app.run(host="0.0.0.0", port=port, debug=False)
+    if __name__ == "__main__":
+        port = int(os.environ.get("PORT", 8080))  # Default to port 8080 if PORT is not set
+        app.run(host="0.0.0.0", port=port, debug=False)

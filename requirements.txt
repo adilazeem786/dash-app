@@ -3,3 +3,4 @@ flask
 pandas
 gunicorn==20.0.4
 plotly
+openpyxl

@@ -278,7 +278,10 @@ def update_output(bulk_content, str_content, target_acos, selected_campaigns, se
                   increase_bid_clicks, reduce_bid_clicks, pause_clicks, do_nothing_clicks, reset_clicks,
                   graduate_clicks, negate_clicks, do_nothing_search_clicks, duplicate_clicks):
     if not bulk_content or not str_content:
+        print("Files not uploaded or empty.")
         return "Please upload both files.", [], [], [], [], [], [], [], [], []
+    
+    print("Files uploaded successfully!")
 
     bulk_file = parse_contents(bulk_content)
     str_file = parse_contents(str_content)

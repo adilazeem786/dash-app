@@ -173,7 +173,15 @@ def calculate_metrics(data, target_acos):
     }
 
 # Dash App Initialization
-app = dash.Dash(__name__)
+from dash import Dash
+
+app = Dash(__name__)
+server = app.server
+
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(debug=True, port=port)
 
 # App Layout
 app.layout = html.Div([
@@ -460,16 +468,3 @@ def update_output(bulk_content, str_content, target_acos, selected_campaigns, se
     search_term_columns = [{"name": col, "id": col} for col in search_terms.columns]
 
     return summary_div, campaign_options, campaign_table, campaign_columns, keyword_options, keyword_table, keyword_columns, search_term_options, search_term_table, search_term_columns
-
-    # ✅ Add this line above the `if __name__ == "__main__"` block
-    import os
-    import dash
-
-    app = dash.Dash(__name__)
-    server = app.server  # ✅ This is required for Render
-
-    import os
-
-    if __name__ == "__main__":
-        port = int(os.environ.get("PORT", 8050))
-        app.run_server(debug=True, port=port)

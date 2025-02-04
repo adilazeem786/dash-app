@@ -137,11 +137,11 @@ def calculate_metrics(data, target_acos):
                 df[col] = 0
 
     # Campaign-level metrics
-    campaigns["CTR"] = ((campaigns["Clicks"] / campaigns["Impressions"]).fillna(0) * 100).round(2)
-    campaigns["CPC"] = (campaigns["Spend"] / campaigns["Clicks"].replace(0, 1) * 100).round(2)
-    campaigns["ACOS"] = (campaigns["Spend"] / campaigns["Sales"].replace(0, 1) * 100).round(2)
-    campaigns["Conversion Rate"] = ((campaigns["Orders"] / campaigns["Clicks"]).fillna(0) * 100).round(2)
-    campaigns["Spend"] = campaigns["Spend"].round(2)
+    #campaigns["CTR"] = ((campaigns["Clicks"] / campaigns["Impressions"]).fillna(0) * 100).round(2)
+    #campaigns["CPC"] = (campaigns["Spend"] / campaigns["Clicks"].replace(0, 1) * 100).round(2)
+    #campaigns["ACOS"] = (campaigns["Spend"] / campaigns["Sales"].replace(0, 1) * 100).round(2)
+    #campaigns["Conversion Rate"] = ((campaigns["Orders"] / campaigns["Clicks"]).fillna(0) * 100).round(2)
+    #campaigns["Spend"] = campaigns["Spend"].round(2)
 
     # Keyword-level metrics and actions
     keywords["RPC"] = (keywords["Sales"] / keywords["Clicks"].replace(0, 1))

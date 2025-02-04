@@ -89,6 +89,12 @@ def calculate_metrics(data, target_acos):
     search_terms = data["search_terms"].copy()
 
     # ✅ Convert to percentage and round to 2 decimal places
+    if "Spend" in keywords.columns:
+        keywords["Spend"] = (keywords["Spend"]).round(2)
+    
+    if "Sales" in keywords.columns:
+        keywords["Sales"] = (keywords["Sales"]).round(2)     
+    
     if "CTR" in keywords.columns:
         keywords["CTR"] = (keywords["CTR"] * 100).round(2)
 
@@ -441,16 +447,16 @@ def update_output(bulk_content, str_content, target_acos, selected_campaigns, se
     # ✅ Select only the required columns for search term metrics
     search_term_columns_to_show = [
          "Campaign", "Ad Group", "Keyword", "Match Type", "CST",
-         "Imp", "Clicks", "CTR", "CPC", "Spend",
+         "Imp", "Clicks", "CTR", "Spend", "CPC",
          "Sales", "ACOS", "Orders", "CVR", "Action"
     ]
     search_terms = search_terms[search_term_columns_to_show]
 
     # ✅ Select only relevant columns for keywords
     keyword_columns_to_show = [
-         "Campaign_1", "Ad Group_1", "Bid", "Keyword",
-         "Match Type", "Imp", "Clicks", "CTR", "Spend", "Sales", "Orders", "Units",
-         "CVR", "ACOS", "CPC", "Max Bid", "RPC", "Action"
+         "Campaign_1", "Ad Group_1", "Keyword",
+         "Match Type", "Imp", "Clicks", "CTR", "Spend", "CPC", "Sales", "ACOS", "Orders",
+         "CVR", "Bid", "Max Bid", "RPC", "Action"
     ]
     keywords = keywords[keyword_columns_to_show]
     # ✅ Calculate ACOS as (Total Spend / Total Sales) * 100

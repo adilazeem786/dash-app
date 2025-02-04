@@ -127,16 +127,16 @@ def calculate_metrics(data, target_acos):
     if "CTR" in campaigns.columns:
         campaigns["CTR"] = (campaigns["CTR"] * 100).round(2)
         
-     if "ACOS" in campaigns.columns:
+    if "ACOS" in campaigns.columns:
         campaigns["ACOS"] = (campaigns["ACOS"] * 100).round(2) 
          
-     if "CVR" in campaigns.columns:
+    if "CVR" in campaigns.columns:
         campaigns["CVR"] = (campaigns["CVR"] * 100).round(2)
      
-     if "Spend" in campaigns.columns:
+    if "Spend" in campaigns.columns:
         campaigns["Spend"] = (campaigns["Spend"]).round(2)    
 
-     if "Sales" in campaigns.columns:
+    if "Sales" in campaigns.columns:
         campaigns["Sales"] = (campaigns["Sales"]).round(2)
 
     # Ensure necessary columns exist

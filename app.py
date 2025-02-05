@@ -11,35 +11,50 @@ bulk_file_path = os.path.join(os.getcwd(), 'Bulk File 30 Days.xlsx')
 str_file_path = os.path.join(os.getcwd(), 'STR 30 Days.xlsx')
 
 def load_and_clean_data(bulk_data, str_data):
-    # ✅ Strip leading and trailing spaces from all column names
-    bulk_data.columns = bulk_data.columns.str.strip()
-    str_data.columns = str_data.columns.str.strip()
-    
-    # ✅ Rename columns based on your preferences
+    # Normalize column names to lowercase to ensure case-insensitive renaming
+    bulk_data.columns = bulk_data.columns.str.strip().str.lower()
+    str_data.columns = str_data.columns.str.strip().str.lower()
+
+    # Create a case-insensitive rename dictionary
     bulk_column_renames = {
-        "Campaign Name": "Campaign",
-        "Campaign Name (Informational only)": "Campaign_1",
-        "Ad Group Name": "Ad Group",
-        "Ad Group Name (Informational only)": "Ad Group_1",
-        "Keyword Text": "Keyword",
-        "Impressions": "Imp",
-        "Click-through Rate": "CTR",
-        "Conversion Rate": "CVR"
+        "campaign name": "Campaign",
+        "campaign name (informational only)": "Campaign_1",
+        "ad group name": "Ad Group",
+        "ad group name (informational only)": "Ad Group_1",
+        "keyword text": "Keyword",
+        "impressions": "Imp",
+        "click-through rate": "CTR",
+        "conversion rate": "CVR",
+        "match type": "Match Type",
+        "entity": "Entity",
+        "cpc": "CPC",
+        "acos": "ACOS",
+        "bid": "Bid",
+        "clicks": "Clicks",
+        "spend": "Spend",
+        "sales": "Sales",
+        "daily budget": "Daily Budget",
+        "bidding strategy": "Bidding Strategy",
+        "orders": "Orders"
     }
 
     search_term_column_renames = {
-        "Campaign Name": "Campaign",
-        "Ad Group Name": "Ad Group",
-        "Targeting": "Keyword",
-        "Customer Search Term": "CST",
-        "Impressions": "Imp",
-        "Click-Thru Rate (CTR)": "CTR",
-        "Cost Per Click (CPC)": "CPC",
-        "7 Day Total Sales": "Sales",
-        "Total Advertising Cost of Sales (ACOS)": "ACOS",
-        "7 Day Total Orders (#)": "Orders",
-        "7 Day Total Units (#)": "Units",
-        "7 Day Conversion Rate": "CVR"
+        "campaign name": "Campaign",
+        "ad group name": "Ad Group",
+        "targeting": "Keyword",
+        "customer search term": "CST",
+        "impressions": "Imp",
+        "click-thru rate (ctr)": "CTR",
+        "cost per click (cpc)": "CPC",
+        "7 day total sales": "Sales",
+        "total advertising cost of sales (acos)": "ACOS",
+        "7 day total orders (#)": "Orders",
+        "7 day total units (#)": "Units",
+        "7 day conversion rate": "CVR",
+        "match type": "Match Type",
+        "clicks": "Clicks",
+        "spend": "Spend",
+        "sales": "Sales"
     }
     
     
